@@ -1,4 +1,4 @@
-<?php namespace Limoncello\Contracts\Application;
+<?php namespace Limoncello\Contracts\Provider;
 
 /**
  * Copyright 2015-2017 info@neomerx.com
@@ -16,27 +16,17 @@
  * limitations under the License.
  */
 
-use Limoncello\Contracts\Routing\GroupInterface;
-
 /**
  * @package Limoncello\Contracts
  */
-interface RoutesConfiguratorInterface
+interface ProvidesMessageResourcesInterface
 {
     /**
-     * Configurator's method name.
-     */
-    const ROUTES_METHOD_NAME = 'configureRoutes';
-
-    /**
-     * @return string[]
-     */
-    public static function getMiddleware(): array;
-
-    /**
-     * @param GroupInterface $routes
+     * Get message descriptions.
      *
-     * @return void
+     * @see MessageStorageInterface
+     *
+     * @return array [string $locale, string $namespaceName, string $messageStorageClass]
      */
-    public static function configureRoutes(GroupInterface $routes): void;
+    public static function getMessageDescriptions(): array;
 }
