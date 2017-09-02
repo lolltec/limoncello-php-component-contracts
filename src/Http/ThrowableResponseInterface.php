@@ -1,4 +1,4 @@
-<?php namespace Limoncello\Contracts\Http\Cors;
+<?php namespace Limoncello\Contracts\Http;
 
 /**
  * Copyright 2015-2017 info@neomerx.com
@@ -16,20 +16,16 @@
  * limitations under the License.
  */
 
+use Psr\Http\Message\ResponseInterface;
+use Throwable;
+
 /**
  * @package Limoncello\Contracts
  */
-interface CorsStorageInterface
+interface ThrowableResponseInterface extends ResponseInterface
 {
     /**
-     * @return array
+     * @return Throwable
      */
-    public function getHeaders(): array;
-
-    /**
-     * @param array $headers
-     *
-     * @return self
-     */
-    public function setHeaders(array $headers): self;
+    public function getThrowable(): Throwable;
 }
